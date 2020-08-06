@@ -19,11 +19,8 @@ class ViewController: UIViewController {
         // Set Percentage
         shape(totalPercentage: 100, array: [(UIColor(named: "ColorA"), 10), (UIColor(named: "ColorB"), 20), (UIColor(named: "ColorC"), 50), (UIColor.clear, 20)])
         
-        
         track()
     }
-    
-    
     
     func shape(totalPercentage: Double, array: [(color: UIColor?, subpercentage: Double)]) {
         
@@ -41,11 +38,18 @@ class ViewController: UIViewController {
         let startAngle = -CGFloat.pi / 4
         let totalLength = CGFloat.pi * 2 * CGFloat(totalPercentage) * 0.01
         var minusLength: CGFloat = 0.0
+        var counter = 0
         
         for (color, subpercentage) in array.reversed() {
             let endAngle = startAngle + totalLength - minusLength
             minusLength += (totalLength * CGFloat(subpercentage) * 0.01)
             draw(startAngle: startAngle, endAngle: endAngle, color: color ?? .black)
+            
+            // to get square edge
+            if counter != 1 {
+                draw2(startAngle: (startAngle + endAngle)/2, endAngle: endAngle, color: color ?? .black)
+            }
+            counter += 1
         }
     }
     
@@ -65,18 +69,22 @@ class ViewController: UIViewController {
         
         view.layer.addSublayer(shapeLayer)
         
-        /* set animation
-         let animation = CABasicAnimation(keyPath: "strokeEnd")
-         shapeLayer.strokeEnd = 0
-         
-         animation.toValue = 1
-         animation.duration = 1.0
-         animation.fillMode = .forwards
-         animation.isRemovedOnCompletion = false
-         
-         shapeLayer.add(animation, forKey: "animation")
-         */
+    }
+    
+    func draw2(startAngle: CGFloat, endAngle: CGFloat, color: UIColor) {
         
+        let shapeLayer = CAShapeLayer()
+        let center = view.center
+        
+        let circlePath = UIBezierPath(arcCenter: center, radius: 100, startAngle: startAngle, endAngle: endAngle, clockwise: true)
+        
+        shapeLayer.path = circlePath.cgPath
+        shapeLayer.strokeColor = color.cgColor
+        shapeLayer.lineWidth = 15
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.lineCap = CAShapeLayerLineCap.square
+        
+        view.layer.addSublayer(shapeLayer)
     }
     
     
@@ -95,5 +103,3 @@ class ViewController: UIViewController {
         view.layer.addSublayer(trackLayer)
     }
 }
-
-
