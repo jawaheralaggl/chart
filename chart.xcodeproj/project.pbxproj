@@ -13,6 +13,7 @@
 		A54CD01C24DA147D002F3503 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A54CD01A24DA147D002F3503 /* Main.storyboard */; };
 		A54CD01E24DA1482002F3503 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A54CD01D24DA1482002F3503 /* Assets.xcassets */; };
 		A54CD02124DA1482002F3503 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A54CD01F24DA1482002F3503 /* LaunchScreen.storyboard */; };
+		A54CD04F24DCAD31002F3503 /* hexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54CD04E24DCAD31002F3503 /* hexColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		A54CD01D24DA1482002F3503 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A54CD02024DA1482002F3503 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A54CD02224DA1482002F3503 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A54CD04E24DCAD31002F3503 /* hexColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hexColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				A54CD01424DA147D002F3503 /* AppDelegate.swift */,
 				A54CD01624DA147D002F3503 /* SceneDelegate.swift */,
 				A54CD01824DA147D002F3503 /* ViewController.swift */,
+				A54CD04E24DCAD31002F3503 /* hexColor.swift */,
 				A54CD01A24DA147D002F3503 /* Main.storyboard */,
 				A54CD01D24DA1482002F3503 /* Assets.xcassets */,
 				A54CD01F24DA1482002F3503 /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A54CD01924DA147D002F3503 /* ViewController.swift in Sources */,
+				A54CD04F24DCAD31002F3503 /* hexColor.swift in Sources */,
 				A54CD01524DA147D002F3503 /* AppDelegate.swift in Sources */,
 				A54CD01724DA147D002F3503 /* SceneDelegate.swift in Sources */,
 			);

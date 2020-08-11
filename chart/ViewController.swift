@@ -10,30 +10,31 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    let arrayNumber: [Double] = [1000, 900, 800]
+    let arrayColour = [UIColor(hex: "#F4B277"), UIColor(hex: "#6787BB"), UIColor(hex: "#6CA777")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor(named: "ColorBackground")
+        self.view.backgroundColor = UIColor(hex: "#1F2633")
         
-        // Set Percentage
-        shape(totalPercentage: 100, array: [(UIColor(named: "ColorA"), 10), (UIColor(named: "ColorB"), 20), (UIColor(named: "ColorC"), 50), (UIColor.clear, 20)])
+        // total amount (sum)
+        let sum = Double(3000)
+        let percantage = arrayNumber.map{($0/sum) * 100}
+        var data = Array(zip(arrayColour, percantage))
+        let validPercentage = percantage.reduce(0,+)
+        
+        if validPercentage < 100 {
+            let emptyPercentage = 100 - validPercentage
+            data.append((UIColor.clear, emptyPercentage))
+        }
+        
+        shape(totalPercentage: 100, array: data)
         
         track()
     }
     
     func shape(totalPercentage: Double, array: [(color: UIColor?, subpercentage: Double)]) {
-        
-        var sum = 0.0
-        
-        for (_, subpercentage) in array {
-            sum += subpercentage
-        }
-        
-        if sum != 100 {
-            fatalError("PERCENTAGES DON'T ADD UP TO 100%")
-        }
-        
         
         let startAngle = -CGFloat.pi / 4
         let totalLength = CGFloat.pi * 2 * CGFloat(totalPercentage) * 0.01
